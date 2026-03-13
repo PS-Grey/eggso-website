@@ -222,13 +222,13 @@ const Index = () => {
               at 15.2% CAGR, with upper extremity devices as the fastest-growing segment.
             </p>
             <div className="border border-border rounded-sm p-5">
-              <p className="font-mono text-sm text-foreground leading-relaxed">
-                A significant gap exists between clinical-grade systems costing tens of
-                thousands and basic resistance bands. There is no intelligent, data-driven
-                rehabilitation device at an accessible price point. Eggso targets this gap —
-                not the motor on a brace (that's commoditised), but the intelligence layer:
-                adaptive resistance, real-time data, fatigue tracking, and objective
-                progress measurement between sessions.
+              <p className="font-mono text-sm text-foreground leading-relaxed">A significant gap exists between clinical-grade systems costing tens of thousands and basic resistance bands. There is no intelligent, data-driven rehabilitation device at an accessible price point. Eggso targets this gap commoditised), but the intelligence layer: adaptive resistance, real-time data, fatigue tracking, and objective progress measurement between sessions.
+
+
+
+
+
+
               </p>
               <p className="font-mono text-sm text-muted-foreground mt-3 leading-relaxed">
                 Positioned as professional exercise equipment with data logging.
