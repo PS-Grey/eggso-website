@@ -3,7 +3,7 @@ const principles = [
   "Safety circuits have no software dependency. Physical disconnect path only.",
   "The control loop must handle edge cases gracefully at range-of-motion limits.",
   "Log everything. Cannot debug what cannot be observed.",
-  "Test on target users, not developers. Suitability matters more than capability.",
+  "Test all edge cases. In the real world there are many.",
 ];
 
 const DesignPrinciplesSection = () => {
