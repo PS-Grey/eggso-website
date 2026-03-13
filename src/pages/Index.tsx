@@ -6,7 +6,7 @@ import PrototypesSection from "@/components/PrototypesSection";
 import TimelineItem from "@/components/TimelineItem";
 import AchievementCard from "@/components/AchievementCard";
 import DesignPrinciplesSection from "@/components/DesignPrinciplesSection";
-import eggsoLogo from "@/assets/eggso-logo.png";
+
 
 const roadmapItems = [
   {
