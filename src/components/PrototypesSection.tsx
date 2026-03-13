@@ -5,8 +5,8 @@ const PrototypesSection = () => {
         Prototypes
       </h3>
       <p className="font-mono text-sm text-muted-foreground mb-8 max-w-xl leading-relaxed">
-        Each iteration revealed lessons about what works
-        in wearable resistance devices - and what doesn't.
+        Each iteration revealed fundamental lessons about what works
+        in wearable resistance devices — and what doesn't.
       </p>
 
       {/* v0.1 */}
@@ -16,7 +16,7 @@ const PrototypesSection = () => {
             v0.1
           </span>
           <span className="font-mono text-xs text-muted-foreground">
-            Proof of Concept - Complete
+            Proof of Concept — Complete
           </span>
         </div>
         <p className="font-mono text-sm text-foreground leading-relaxed mb-4">
@@ -37,7 +37,7 @@ const PrototypesSection = () => {
           <div>
             <span className="font-mono text-xs text-muted-foreground block mb-1">Lessons learned</span>
             <ul className="font-mono text-xs text-foreground space-y-1">
-              <li>• Gearbox selection is critical - it defines the user experience</li>
+              <li>• Gearbox selection is critical — it defines the entire user experience</li>
               <li>• The control loop requires careful tuning to avoid oscillation</li>
               <li>• Power supply must be sized for peak load, not nominal</li>
             </ul>
@@ -45,7 +45,7 @@ const PrototypesSection = () => {
         </div>
         <div className="mt-4 pt-4 border-t border-border">
           <p className="font-mono text-xs text-primary italic">
-            Key insight: no amount of firmware compensates for wrong hardware choices.
+            Key insight: reached ceiling fast due to the limited hardware capabilities.     
           </p>
         </div>
       </div>
@@ -87,8 +87,8 @@ const PrototypesSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default PrototypesSection;
