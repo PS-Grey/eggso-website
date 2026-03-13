@@ -2,10 +2,13 @@ import { cn } from "@/lib/utils";
 
 const sections = [
   { id: "overview", label: "Overview" },
-  { id: "journey", label: "Journey" },
+  { id: "how-it-works", label: "How It Works" },
+  { id: "prototypes", label: "Prototypes" },
   { id: "roadmap", label: "Roadmap" },
   { id: "achievements", label: "Achievements" },
+  { id: "principles", label: "Principles" },
   { id: "specs", label: "Specs" },
+  { id: "market", label: "Market" },
 ];
 
 interface SideNavProps {

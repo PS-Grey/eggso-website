@@ -1,65 +1,88 @@
 import { useState, useEffect } from "react";
 import SideNav from "@/components/SideNav";
+import HeroSection from "@/components/HeroSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import PrototypesSection from "@/components/PrototypesSection";
 import TimelineItem from "@/components/TimelineItem";
 import AchievementCard from "@/components/AchievementCard";
+import DesignPrinciplesSection from "@/components/DesignPrinciplesSection";
+import eggsoLogo from "@/assets/eggso-logo.png";
 
 const roadmapItems = [
   {
-    date: "2024 Q1",
-    title: "Concept & Research",
-    description: "Literature review on resistance-based rehabilitation. Defined core principle: motor-driven variable resistance across joints.",
+    date: "2024 Q4",
+    title: "Research & Proof of Concept",
+    description: "Literature review, market analysis, and initial feasibility study. Identified open-source exoskeleton projects (ExoKit, EduExo) as starting points.",
     status: "done" as const,
-  },
-  {
-    date: "2024 Q2",
-    title: "Single Joint Prototype",
-    description: "Designed and fabricated the first single-joint module. BLDC motor with encoder feedback for precise torque control.",
-    status: "done" as const,
-  },
-  {
-    date: "2024 Q3–Now",
-    title: "Control System Development",
-    description: "Implementing closed-loop resistance control. Tuning PID parameters for smooth, predictable force profiles across ROM.",
-    status: "current" as const,
   },
   {
     date: "2025 Q1",
-    title: "Multi-Joint Expansion",
-    description: "Extend to elbow and shoulder joints. Mechanical coupling design for coordinated multi-axis resistance.",
-    status: "upcoming" as const,
+    title: "v0.1 — Single Joint Prototype",
+    description: "First working prototype built from commodity components under £200. DC gear motor, H-bridge driver, ESP32 control loop with browser dashboard.",
+    status: "done" as const,
+  },
+  {
+    date: "2025 Q1–Q2",
+    title: "v0.2 — Motor & Frame Redesign",
+    description: "BLDC motor with steel planetary gearbox, CAN bus communication, medical elbow brace frame. Addressing all v0.1 failure points.",
+    status: "current" as const,
   },
   {
     date: "2025 Q3",
-    title: "Wearable Integration",
-    description: "Lightweight frame design. Battery and embedded compute for untethered operation.",
+    title: "Clinical Feedback",
+    description: "Demonstration to physiotherapy practitioners. Gathering feedback on resistance feel, data usefulness, and clinical workflow integration.",
+    status: "upcoming" as const,
+  },
+  {
+    date: "2025 Q4",
+    title: "Multi-Joint Expansion",
+    description: "Extending to shoulder joint. Mechanical coupling design for coordinated multi-axis resistance across the upper limb.",
     status: "upcoming" as const,
   },
   {
     date: "2026",
-    title: "Clinical Validation",
-    description: "Partner with rehabilitation centers for controlled studies. Measure outcomes against conventional therapy.",
+    title: "Portable Operation",
+    description: "Battery-powered operation using e-bike battery packs. Embedded compute for untethered clinical use.",
     status: "upcoming" as const,
   },
 ];
 
 const achievements = [
   {
-    date: "2024-06",
+    date: "2025-01",
     title: "First Resistance Profile",
-    description: "Successfully generated a programmable resistance curve on a single joint with ±2% torque accuracy.",
-    metric: "Torque accuracy: ±2%",
+    description: "Constant resistance mode successfully generated programmable opposing force. Phase-based direction logic eliminated mid-rep oscillation.",
+    metric: "Under £200 build cost",
   },
   {
-    date: "2024-08",
-    title: "Encoder Integration",
-    description: "14-bit absolute encoder providing real-time joint angle feedback at 1kHz sampling rate.",
-    metric: "Sampling rate: 1kHz",
+    date: "2025-02",
+    title: "Real-Time Dashboard",
+    description: "Browser-based monitoring dashboard connected via WebSocket. Streams angle, velocity, current, and rep data at 10Hz with exercise history.",
+    metric: "10Hz telemetry stream",
   },
   {
-    date: "2024-10",
-    title: "Passive Backdrivability",
-    description: "Achieved full backdrivability — the joint can be moved freely when motors are unpowered. Critical for safety.",
-    metric: "Backdriving force: <0.5 Nm",
+    date: "2025-02",
+    title: "Backdrivability Achieved",
+    description: "System moves freely when motors are unpowered. Critical safety requirement — the user is never locked into position by the mechanism.",
+    metric: "Full passive mobility",
+  },
+  {
+    date: "2025-03",
+    title: "Isokinetic Mode Validated",
+    description: "Velocity-controlled exercise mode showed genuine fatigue curves and successful resist-to-assist transitions during extended testing.",
+    metric: "Fatigue detection working",
+  },
+  {
+    date: "2025-03",
+    title: "Gearbox Failure Analysis",
+    description: "131:1 zinc spur gearbox failed twice under normal loads. Root cause analysis led to the v0.2 specification: 8:1 steel planetary gears.",
+    metric: "22 Nm stall torque (v0.2)",
+  },
+  {
+    date: "2025-03",
+    title: "Safety Architecture Defined",
+    description: "Dual-path kill switch design finalised. Mechanical relay provides physical air gap independent of microcontroller. No software in the safety path.",
+    metric: "Zero software dependency",
   },
 ];
 
@@ -84,14 +107,15 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border">
-        <div className="max-w-5xl mx-auto px-6 py-6 flex items-baseline justify-between">
-          <div>
+        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src={eggsoLogo} alt="Eggso logo" className="h-8 w-auto" />
             <h1 className="font-display text-xl font-semibold tracking-tight">
-              EXO<span className="text-primary">.</span>LOG
+              eggso
             </h1>
           </div>
-          <span className="font-mono text-xs text-muted-foreground">
-            Resistance-Based Exoskeleton — Project Log
+          <span className="font-mono text-xs text-muted-foreground hidden sm:block">
+            Adaptive Resistance Exoskeleton — Development Log
           </span>
         </div>
       </header>
@@ -101,76 +125,9 @@ const Index = () => {
         <SideNav activeSection={activeSection} />
 
         <main className="flex-1 min-w-0">
-          {/* Overview */}
-          <section id="overview" className="mb-20">
-            <h2 className="font-display text-3xl font-semibold tracking-tight">
-              Building an exoskeleton for
-              <br />
-              rehabilitation & recreation
-            </h2>
-            <div className="mt-6 space-y-4 font-mono text-sm text-muted-foreground leading-relaxed max-w-2xl">
-              <p>
-                This project documents the development of a motor-driven exoskeleton
-                that provides variable resistance across joints. The core mechanism
-                uses BLDC motors as programmable resistance elements — not actuators.
-              </p>
-              <p>
-                The system is designed for two use cases: guided rehabilitation
-                (progressive resistance therapy) and recreational fitness
-                (strength training with adaptive load curves).
-              </p>
-              <p>
-                Current state: single-joint prototype with closed-loop torque control.
-              </p>
-            </div>
-            <div className="mt-8 flex gap-6 font-mono text-xs">
-              <div className="border border-border px-4 py-3 rounded-sm">
-                <span className="text-muted-foreground block">Status</span>
-                <span className="text-foreground font-medium mt-0.5 block">Single Joint — Active</span>
-              </div>
-              <div className="border border-border px-4 py-3 rounded-sm">
-                <span className="text-muted-foreground block">Principle</span>
-                <span className="text-foreground font-medium mt-0.5 block">Motor Resistance Control</span>
-              </div>
-              <div className="border border-border px-4 py-3 rounded-sm">
-                <span className="text-muted-foreground block">Application</span>
-                <span className="text-foreground font-medium mt-0.5 block">Rehab & Recreation</span>
-              </div>
-            </div>
-          </section>
-
-          {/* Journey */}
-          <section id="journey" className="mb-20">
-            <h3 className="font-display text-lg font-semibold tracking-tight mb-2">
-              Journey
-            </h3>
-            <p className="font-mono text-sm text-muted-foreground mb-8 max-w-xl leading-relaxed">
-              The project started with a simple question: can you use motors not
-              to move a limb, but to resist it — with programmable force profiles?
-              Here's what happened.
-            </p>
-            <div className="space-y-0">
-              <div className="border border-border rounded-sm p-5 mb-4">
-                <span className="font-mono text-xs text-muted-foreground">The core insight</span>
-                <p className="font-mono text-sm text-foreground mt-2 leading-relaxed">
-                  Most exoskeletons use motors to assist movement. This project
-                  inverts that — motors provide controlled resistance. By varying
-                  current to a BLDC motor, you get precise, programmable force
-                  that a user must work against. This turns the exoskeleton into
-                  a wearable resistance machine with infinite load curves.
-                </p>
-              </div>
-              <div className="border border-border rounded-sm p-5">
-                <span className="font-mono text-xs text-muted-foreground">Current focus</span>
-                <p className="font-mono text-sm text-foreground mt-2 leading-relaxed">
-                  Perfecting torque control on a single knee joint. The challenge
-                  is making resistance feel natural — smooth onset, consistent
-                  through range of motion, and immediate release when needed.
-                  Safety is non-negotiable: the system must be fully backdrivable.
-                </p>
-              </div>
-            </div>
-          </section>
+          <HeroSection />
+          <HowItWorksSection />
+          <PrototypesSection />
 
           {/* Roadmap */}
           <section id="roadmap" className="mb-20">
@@ -193,7 +150,7 @@ const Index = () => {
               Achievements
             </h3>
             <p className="font-mono text-sm text-muted-foreground mb-8">
-              Key technical milestones reached.
+              Key technical milestones reached during development.
             </p>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {achievements.map((a) => (
@@ -202,35 +159,93 @@ const Index = () => {
             </div>
           </section>
 
+          {/* Design Principles */}
+          <DesignPrinciplesSection />
+
           {/* Specs */}
           <section id="specs" className="mb-20">
             <h3 className="font-display text-lg font-semibold tracking-tight mb-2">
               Technical Specifications
             </h3>
             <p className="font-mono text-sm text-muted-foreground mb-8">
-              Current prototype parameters.
+              Current and next-generation parameters.
             </p>
-            <div className="border border-border rounded-sm overflow-hidden">
-              {[
-                ["Motor Type", "Brushless DC (BLDC)"],
-                ["Peak Torque", "12 Nm"],
-                ["Encoder", "14-bit absolute, 1kHz"],
-                ["Control Loop", "PID, 1kHz update rate"],
-                ["Backdriving Force", "< 0.5 Nm"],
-                ["Joint Coverage", "Knee (single axis)"],
-                ["Power Supply", "48V DC (bench supply)"],
-                ["Communication", "CAN bus"],
-              ].map(([label, value], i) => (
-                <div
-                  key={label}
-                  className={`flex justify-between px-5 py-3 font-mono text-sm ${
-                    i % 2 === 0 ? "bg-card" : "bg-secondary/50"
-                  }`}
-                >
-                  <span className="text-muted-foreground">{label}</span>
-                  <span className="text-foreground font-medium">{value}</span>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <span className="font-mono text-xs text-muted-foreground block mb-2">v0.1 (Complete)</span>
+                <div className="border border-border rounded-sm overflow-hidden">
+                  {[
+                    ["Motor", "DC Gear Motor (JGB37-520)"],
+                    ["Gearbox", "131:1 Zinc Spur"],
+                    ["Driver", "BTS7960 H-Bridge (43A)"],
+                    ["Controller", "ESP32"],
+                    ["Encoder", "External quadrature"],
+                    ["Power", "12V 2A DC"],
+                    ["Communication", "WebSocket + BLE"],
+                    ["Frame", "Aluminium bars + velcro"],
+                  ].map(([label, value], i) => (
+                    <div
+                      key={label}
+                      className={`flex justify-between px-4 py-2.5 font-mono text-xs ${
+                        i % 2 === 0 ? "bg-card" : "bg-secondary/50"
+                      }`}
+                    >
+                      <span className="text-muted-foreground">{label}</span>
+                      <span className="text-foreground font-medium">{value}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+              <div>
+                <span className="font-mono text-xs text-muted-foreground block mb-2">v0.2 (In Progress)</span>
+                <div className="border border-border rounded-sm overflow-hidden">
+                  {[
+                    ["Motor", "BLDC (GIM8108-8)"],
+                    ["Gearbox", "8:1 Steel Planetary"],
+                    ["Peak Torque", "22 Nm stall / 7.5 Nm nom."],
+                    ["Driver", "GDZ468H (CAN)"],
+                    ["Encoder", "Built-in 12-bit (4096 CPR)"],
+                    ["Power", "24V 8A DC"],
+                    ["Communication", "CAN bus + WebSocket"],
+                    ["Frame", "Medical elbow brace"],
+                  ].map(([label, value], i) => (
+                    <div
+                      key={label}
+                      className={`flex justify-between px-4 py-2.5 font-mono text-xs ${
+                        i % 2 === 0 ? "bg-card" : "bg-secondary/50"
+                      }`}
+                    >
+                      <span className="text-muted-foreground">{label}</span>
+                      <span className="text-foreground font-medium">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Market Context */}
+          <section id="market" className="mb-20">
+            <h3 className="font-display text-lg font-semibold tracking-tight mb-2">
+              Market Context
+            </h3>
+            <p className="font-mono text-sm text-muted-foreground mb-8 max-w-xl leading-relaxed">
+              The rehabilitation robotics market is valued at $428M (2024) and growing
+              at 15.2% CAGR, with upper extremity devices as the fastest-growing segment.
+            </p>
+            <div className="border border-border rounded-sm p-5">
+              <p className="font-mono text-sm text-foreground leading-relaxed">
+                A significant gap exists between clinical-grade systems costing £30,000+
+                and basic resistance bands at £15. There is no intelligent, data-driven
+                rehabilitation device in the £300–500 range. Eggso targets this gap —
+                not the motor on a brace (that's commoditised), but the intelligence layer:
+                adaptive resistance, real-time data, fatigue tracking, and objective
+                progress measurement between sessions.
+              </p>
+              <p className="font-mono text-sm text-muted-foreground mt-3 leading-relaxed">
+                Positioned as professional exercise equipment with data logging.
+                Clinical judgement remains with the physiotherapist.
+              </p>
             </div>
           </section>
         </main>
@@ -239,7 +254,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border">
         <div className="max-w-5xl mx-auto px-6 py-6 font-mono text-xs text-muted-foreground">
-          EXO.LOG — Project documentation. Not a product. Not for sale.
+          Eggso — Development documentation. Work in progress.
         </div>
       </footer>
     </div>
