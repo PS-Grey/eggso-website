@@ -20,36 +20,32 @@ const PrototypesSection = () => {
           </span>
         </div>
         <p className="font-mono text-sm text-foreground leading-relaxed mb-4">
-          The first prototype used a DC gear motor with a 131:1 zinc spur gearbox,
-          an H-bridge motor driver, and a hand-cut aluminium frame. Built for under £200
-          from commodity components. An ESP32 ran the control loop with a browser-based
-          dashboard for real-time monitoring.
+          The first prototype was built from commodity components to validate the
+          core concept: can a motor-based system provide useful, controllable resistance
+          for rehabilitation exercises? A microcontroller ran the control loop with a
+          browser-based dashboard for real-time monitoring.
         </p>
         <div className="space-y-3">
           <div>
             <span className="font-mono text-xs text-muted-foreground block mb-1">What worked</span>
             <ul className="font-mono text-xs text-foreground space-y-1">
               <li>• Constant resistance mode provided usable opposing force</li>
-              <li>• Phase-based direction logic eliminated mid-rep oscillation</li>
-              <li>• Browser dashboard with WebSocket streaming at 10Hz proved the data pipeline</li>
-              <li>• Buffer zones at range-of-motion limits prevented overshoot</li>
+              <li>• Browser dashboard with real-time streaming proved the data pipeline</li>
               <li>• Exercise logging and rep counting functioned reliably</li>
             </ul>
           </div>
           <div>
-            <span className="font-mono text-xs text-muted-foreground block mb-1">What failed</span>
+            <span className="font-mono text-xs text-muted-foreground block mb-1">Lessons learned</span>
             <ul className="font-mono text-xs text-foreground space-y-1">
-              <li>• Zinc spur gears broke twice under normal exercise loads</li>
-              <li>• 131:1 ratio made backdriving feel like pushing through concrete</li>
-              <li>• P-only control caused see-saw oscillation — the derivative term was missing</li>
-              <li>• 12V 2A power supply was massively underpowered</li>
+              <li>• Gearbox selection is critical — it defines the entire user experience</li>
+              <li>• The control loop requires careful tuning to avoid oscillation</li>
+              <li>• Power supply must be sized for peak load, not nominal</li>
             </ul>
           </div>
         </div>
         <div className="mt-4 pt-4 border-t border-border">
           <p className="font-mono text-xs text-primary italic">
-            Key insight: the gearbox defines the entire user experience. No amount of
-            firmware compensates for wrong hardware.
+            Key insight: no amount of firmware compensates for wrong hardware choices.
           </p>
         </div>
       </div>
@@ -65,30 +61,28 @@ const PrototypesSection = () => {
           </span>
         </div>
         <p className="font-mono text-sm text-foreground leading-relaxed mb-4">
-          Complete redesign based on v0.1 learnings. A BLDC motor with an 8:1 steel
-          planetary gearbox replaces the failed DC motor — the motor itself becomes the joint.
-          CAN bus communication replaces analog wiring. A medical-grade elbow brace
-          replaces the hand-cut aluminium frame.
+          Complete redesign based on v0.1 learnings. A BLDC motor with a planetary
+          gearbox replaces the previous drive system. The motor itself becomes the joint.
+          Digital bus communication replaces analog wiring. A medical-grade elbow brace
+          replaces the hand-cut frame.
         </p>
         <div className="grid gap-4 sm:grid-cols-2 mt-4">
           <div>
             <span className="font-mono text-xs text-muted-foreground block mb-1">Motor upgrade</span>
             <ul className="font-mono text-xs text-foreground space-y-1">
-              <li>• BLDC with 8:1 steel planetary gearbox</li>
-              <li>• 22 Nm stall torque, 7.5 Nm nominal</li>
-              <li>• Built-in 12-bit encoder (4096 CPR)</li>
-              <li>• Fully backdrivable (~70-80% efficiency)</li>
-              <li>• 378g, 92mm diameter</li>
+              <li>• BLDC with steel planetary gearbox</li>
+              <li>• Sufficient torque for upper-limb rehabilitation</li>
+              <li>• Built-in high-resolution encoder</li>
+              <li>• Fully backdrivable</li>
             </ul>
           </div>
           <div>
             <span className="font-mono text-xs text-muted-foreground block mb-1">Architecture changes</span>
             <ul className="font-mono text-xs text-foreground space-y-1">
-              <li>• CAN bus replaces analog wiring</li>
-              <li>• Driver handles BLDC commutation natively</li>
+              <li>• Digital bus replaces analog wiring</li>
+              <li>• Motor commutation handled on-driver</li>
               <li>• Torque, velocity, and position control on-driver</li>
               <li>• Dual-path safety: relay + electronic kill switch</li>
-              <li>• 24V 8A power supply (vs 12V 2A)</li>
             </ul>
           </div>
         </div>

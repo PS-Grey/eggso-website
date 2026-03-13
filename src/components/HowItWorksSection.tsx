@@ -31,11 +31,11 @@ const HowItWorksSection = () => {
       <div className="border border-border rounded-sm p-5 mb-4">
         <span className="font-mono text-xs text-muted-foreground">The core mechanism</span>
         <p className="font-mono text-sm text-foreground mt-2 leading-relaxed">
-          A brushless DC motor with a steel planetary gearbox sits at the elbow joint.
+          A brushless DC motor with a planetary gearbox sits at the elbow joint.
           The motor doesn't move the arm — it resists it. Torque is controlled through
-          a closed-loop system running at 1kHz, reading joint angle, velocity, and
-          muscle activity to compute the appropriate resistance in real time. The system
-          is fully backdrivable — when unpowered, the joint moves freely.
+          a closed-loop system reading joint angle, velocity, and muscle activity to
+          compute the appropriate resistance in real time. The system is fully
+          backdrivable — when unpowered, the joint moves freely.
         </p>
       </div>
 

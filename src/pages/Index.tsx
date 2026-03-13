@@ -51,14 +51,14 @@ const achievements = [
   {
     date: "2025-01",
     title: "First Resistance Profile",
-    description: "Constant resistance mode successfully generated programmable opposing force. Phase-based direction logic eliminated mid-rep oscillation.",
-    metric: "Under £200 build cost",
+    description: "Constant resistance mode successfully generated programmable opposing force through closed-loop motor control.",
+    metric: "Concept validated",
   },
   {
     date: "2025-02",
     title: "Real-Time Dashboard",
-    description: "Browser-based monitoring dashboard connected via WebSocket. Streams angle, velocity, current, and rep data at 10Hz with exercise history.",
-    metric: "10Hz telemetry stream",
+    description: "Browser-based monitoring dashboard with real-time telemetry streaming. Angle, velocity, and rep data with exercise history.",
+    metric: "Live telemetry",
   },
   {
     date: "2025-02",
@@ -69,19 +69,13 @@ const achievements = [
   {
     date: "2025-03",
     title: "Isokinetic Mode Validated",
-    description: "Velocity-controlled exercise mode showed genuine fatigue curves and successful resist-to-assist transitions during extended testing.",
+    description: "Velocity-controlled exercise mode showed genuine fatigue curves and successful resist-to-assist transitions during testing.",
     metric: "Fatigue detection working",
   },
   {
     date: "2025-03",
-    title: "Gearbox Failure Analysis",
-    description: "131:1 zinc spur gearbox failed twice under normal loads. Root cause analysis led to the v0.2 specification: 8:1 steel planetary gears.",
-    metric: "22 Nm stall torque (v0.2)",
-  },
-  {
-    date: "2025-03",
     title: "Safety Architecture Defined",
-    description: "Dual-path kill switch design finalised. Mechanical relay provides physical air gap independent of microcontroller. No software in the safety path.",
+    description: "Dual-path kill switch design finalised. Physical disconnect path independent of microcontroller. No software in the safety path.",
     metric: "Zero software dependency",
   },
 ];
@@ -165,21 +159,20 @@ const Index = () => {
               Technical Specifications
             </h3>
             <p className="font-mono text-sm text-muted-foreground mb-8">
-              Current and next-generation parameters.
+              High-level system parameters.
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <span className="font-mono text-xs text-muted-foreground block mb-2">v0.1 (Complete)</span>
                 <div className="border border-border rounded-sm overflow-hidden">
                   {[
-                    ["Motor", "DC Gear Motor (JGB37-520)"],
-                    ["Gearbox", "131:1 Zinc Spur"],
-                    ["Driver", "BTS7960 H-Bridge (43A)"],
-                    ["Controller", "ESP32"],
+                    ["Motor Type", "DC Gear Motor"],
+                    ["Gearbox", "Spur gear"],
+                    ["Driver", "H-Bridge"],
+                    ["Controller", "Microcontroller"],
                     ["Encoder", "External quadrature"],
-                    ["Power", "12V 2A DC"],
                     ["Communication", "WebSocket + BLE"],
-                    ["Frame", "Aluminium bars + velcro"],
+                    ["Frame", "Aluminium + velcro"],
                   ].map(([label, value], i) => (
                     <div
                       key={label}
@@ -197,13 +190,11 @@ const Index = () => {
                 <span className="font-mono text-xs text-muted-foreground block mb-2">v0.2 (In Progress)</span>
                 <div className="border border-border rounded-sm overflow-hidden">
                   {[
-                    ["Motor", "BLDC (GIM8108-8)"],
-                    ["Gearbox", "8:1 Steel Planetary"],
-                    ["Peak Torque", "22 Nm stall / 7.5 Nm nom."],
-                    ["Driver", "GDZ468H (CAN)"],
-                    ["Encoder", "Built-in 12-bit (4096 CPR)"],
-                    ["Power", "24V 8A DC"],
-                    ["Communication", "CAN bus + WebSocket"],
+                    ["Motor Type", "BLDC"],
+                    ["Gearbox", "Steel Planetary"],
+                    ["Driver", "Integrated (digital bus)"],
+                    ["Encoder", "Built-in high-resolution"],
+                    ["Communication", "Digital bus + WebSocket"],
                     ["Frame", "Medical elbow brace"],
                   ].map(([label, value], i) => (
                     <div
@@ -232,9 +223,9 @@ const Index = () => {
             </p>
             <div className="border border-border rounded-sm p-5">
               <p className="font-mono text-sm text-foreground leading-relaxed">
-                A significant gap exists between clinical-grade systems costing £30,000+
-                and basic resistance bands at £15. There is no intelligent, data-driven
-                rehabilitation device in the £300–500 range. Eggso targets this gap —
+                A significant gap exists between clinical-grade systems costing tens of
+                thousands and basic resistance bands. There is no intelligent, data-driven
+                rehabilitation device at an accessible price point. Eggso targets this gap —
                 not the motor on a brace (that's commoditised), but the intelligence layer:
                 adaptive resistance, real-time data, fatigue tracking, and objective
                 progress measurement between sessions.
