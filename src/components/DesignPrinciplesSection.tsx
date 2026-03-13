@@ -13,7 +13,7 @@ const DesignPrinciplesSection = () => {
         Design Principles
       </h3>
       <p className="font-mono text-sm text-muted-foreground mb-8">
-        Lessons extracted from building. Each was learned the hard way.
+        Key learnings from building.
       </p>
       <div className="space-y-0">
         {principles.map((p, i) => (

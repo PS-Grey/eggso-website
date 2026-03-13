@@ -17,13 +17,13 @@ const roadmapItems = [
   },
   {
     date: "2025 Q1",
-    title: "v0.1 — Single Joint Prototype",
+    title: "v0.1 - Single Joint Prototype",
     description: "First working prototype built from commodity components under £200. DC gear motor, H-bridge driver, ESP32 control loop with browser dashboard.",
     status: "done" as const,
   },
   {
-    date: "2025 Q1–Q2",
-    title: "v0.2 — Motor & Frame Redesign",
+    date: "2025 Q1-Q2",
+    title: "v0.2 - Motor & Frame Redesign",
     description: "BLDC motor with steel planetary gearbox, CAN bus communication, medical elbow brace frame. Addressing all v0.1 failure points.",
     status: "current" as const,
   },
@@ -63,7 +63,7 @@ const achievements = [
   {
     date: "2025-02",
     title: "Backdrivability Achieved",
-    description: "System moves freely when motors are unpowered. Critical safety requirement — the user is never locked into position by the mechanism.",
+    description: "System moves freely when motors are unpowered. Critical safety requirement - the user is never locked into position by the mechanism.",
     metric: "Full passive mobility",
   },
   {
@@ -106,7 +106,7 @@ const Index = () => {
             eggso.io
           </h1>
           <span className="font-mono text-xs text-muted-foreground hidden sm:block">
-            Adaptive Resistance Exoskeleton — Development Log
+            Adaptive Resistance Exoskeleton - Development Log
           </span>
         </div>
       </header>
@@ -223,9 +223,9 @@ const Index = () => {
             </p>
             <div className="border border-border rounded-sm p-5">
               <p className="font-mono text-sm text-foreground leading-relaxed">
-                A significant gap exists between clinical-grade systems costing tens of
-                thousands and basic resistance bands. There is no intelligent, data-driven
-                rehabilitation device at an accessible price point. Eggso targets this gap —
+                There is a gap between clinical-grade systems costing tens of
+                thousands and basic resistance bands. No intelligent, data-driven
+                rehabilitation device exists at an accessible price point. Eggso targets this -
                 not the motor on a brace (that's commoditised), but the intelligence layer:
                 adaptive resistance, real-time data, fatigue tracking, and objective
                 progress measurement between sessions.
@@ -244,7 +244,6 @@ const Index = () => {
         <div className="max-w-5xl mx-auto px-6 py-8 font-mono text-xs text-muted-foreground flex flex-col sm:flex-row justify-between gap-4">
           <span>© {new Date().getFullYear()} Eggso. All rights reserved.</span>
           <div className="flex gap-6">
-            <a href="mailto:contact@eggso.io" className="hover:text-foreground transition-colors">contact@eggso.io</a>
             <a href="mailto:sergiy@eggso.io" className="hover:text-foreground transition-colors">sergiy@eggso.io</a>
           </div>
         </div>
