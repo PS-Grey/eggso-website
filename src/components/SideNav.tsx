@@ -17,7 +17,7 @@ interface SideNavProps {
 
 const SideNav = ({ activeSection }: SideNavProps) => {
   return (
-    <nav className="hidden lg:flex flex-col gap-1 sticky top-8 w-48">
+    <nav className="hidden lg:flex flex-col gap-1 sticky top-8 self-start w-48">
       <span className="font-display text-xs tracking-widest uppercase text-muted-foreground mb-4">
         Navigation
       </span>
