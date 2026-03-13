@@ -2,17 +2,17 @@ const modes = [
   {
     name: "Constant Resistance",
     description:
-      "A fixed opposing torque regardless of arm position or speed. The resistance level is set and maintained throughout the exercise. Useful for baseline strength testing and simple resistance training.",
+      "A fixed opposing torque regardless of arm position or speed. The resistance level is set and maintained throughout the exercise. Used for baseline strength testing and simple resistance training.",
   },
   {
     name: "Isokinetic",
     description:
-      "A PID controller maintains constant angular velocity. If the arm moves too fast, resistance increases. Too slow, it decreases. The clinical gold standard for joint assessment — the user always pushes at maximum effort while the system auto-matches resistance.",
+      "A PID controller maintains constant angular velocity. If the arm moves too fast, resistance increases. Too slow, it decreases. The clinical standard for joint assessment - the user pushes at maximum effort while the system auto-matches resistance.",
   },
   {
     name: "Adaptive (EMG-Driven)",
     description:
-      "Muscle activity is read in real time via EMG sensors. Strong muscle contraction triggers resistance; detected fatigue transitions the system to assistance. Resistance and support shift dynamically within a single rep.",
+      "Muscle activity is read in real time via EMG sensors. Strong contraction triggers resistance; detected fatigue transitions the system to assistance. Resistance and support shift within a single rep.",
   },
 ];
 
@@ -23,7 +23,7 @@ const HowItWorksSection = () => {
         How It Works
       </h3>
       <p className="font-mono text-sm text-muted-foreground mb-8 max-w-xl leading-relaxed">
-        Most exoskeletons use motors to assist movement. Eggso inverts that —
+        Most exoskeletons use motors to assist movement. Eggso inverts that -
         motors provide controlled resistance. By varying current to a BLDC motor,
         precise, programmable force is generated that the user must work against.
       </p>
@@ -32,10 +32,10 @@ const HowItWorksSection = () => {
         <span className="font-mono text-xs text-muted-foreground">The core mechanism</span>
         <p className="font-mono text-sm text-foreground mt-2 leading-relaxed">
           A brushless DC motor with a planetary gearbox sits at the elbow joint.
-          The motor doesn't move the arm — it resists it. Torque is controlled through
+          The motor doesn't move the arm - it resists it. Torque is controlled through
           a closed-loop system reading joint angle, velocity, and muscle activity to
           compute the appropriate resistance in real time. The system is fully
-          backdrivable — when unpowered, the joint moves freely.
+          backdrivable - when unpowered, the joint moves freely.
         </p>
       </div>
 
