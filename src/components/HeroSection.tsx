@@ -1,22 +1,14 @@
-import heroImage from "@/assets/hero-exo.jpg";
-
 const HeroSection = () => {
   return (
     <section id="overview" className="mb-20">
-      <div className="rounded-sm overflow-hidden mb-10 border border-border">
-        <img
-          src={heroImage}
-          alt="Technical blueprint illustration of the Eggso elbow exoskeleton joint mechanism"
-          className="w-full h-48 sm:h-64 object-cover"
-          loading="eager"
-        />
-      </div>
-
-      <h2 className="font-display text-3xl font-semibold tracking-tight">
+      <h2 className="font-display text-6xl sm:text-8xl font-bold tracking-tighter mb-8">
+        EGGSO
+      </h2>
+      <p className="font-display text-xl sm:text-2xl font-medium tracking-tight text-muted-foreground mb-2">
         A portable exoskeleton that
         <br />
         resists, guides & supports motion
-      </h2>
+      </p>
       <div className="mt-6 space-y-4 font-mono text-sm text-muted-foreground leading-relaxed max-w-2xl">
         <p>
           Eggso is a motorised elbow exoskeleton designed for rehabilitation exercise
