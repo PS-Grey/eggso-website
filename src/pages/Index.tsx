@@ -6,7 +6,7 @@ import PrototypesSection from "@/components/PrototypesSection";
 import TimelineItem from "@/components/TimelineItem";
 import AchievementCard from "@/components/AchievementCard";
 import DesignPrinciplesSection from "@/components/DesignPrinciplesSection";
-import eggsoLogo from "@/assets/eggso-logo.png";
+
 
 const roadmapItems = [
   {
@@ -108,12 +108,9 @@ const Index = () => {
       {/* Header */}
       <header className="border-b border-border">
         <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src={eggsoLogo} alt="Eggso logo" className="h-8 w-auto" />
-            <h1 className="font-display text-xl font-semibold tracking-tight">
-              eggso
-            </h1>
-          </div>
+          <h1 className="font-display text-xl font-semibold tracking-tight">
+            eggso.io
+          </h1>
           <span className="font-mono text-xs text-muted-foreground hidden sm:block">
             Adaptive Resistance Exoskeleton — Development Log
           </span>
