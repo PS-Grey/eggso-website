@@ -243,10 +243,7 @@ const Index = () => {
       <footer className="border-t border-border">
         <div className="max-w-5xl mx-auto px-6 py-8 font-mono text-xs text-muted-foreground flex flex-col sm:flex-row justify-between gap-4">
           <span>© 2026 🥚 Eggso. All rights reserved.</span>
-          <div className="flex gap-6">
-            <a href="mailto:contact@eggso.io" className="hover:text-foreground transition-colors">contact@eggso.io</a>
-            <a href="mailto:sergiy@eggso.io" className="hover:text-foreground transition-colors">sergiy@eggso.io</a>
-          </div>
+          <a href="mailto:sergiy@eggso.io" className="hover:text-foreground transition-colors">sergiy@eggso.io</a>
         </div>
       </footer>
     </div>);
