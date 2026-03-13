@@ -51,14 +51,14 @@ const achievements = [
   {
     date: "2025-01",
     title: "First Resistance Profile",
-    description: "Constant resistance mode successfully generated programmable opposing force. Phase-based direction logic eliminated mid-rep oscillation.",
-    metric: "Under £200 build cost",
+    description: "Constant resistance mode successfully generated programmable opposing force through closed-loop motor control.",
+    metric: "Concept validated",
   },
   {
     date: "2025-02",
     title: "Real-Time Dashboard",
-    description: "Browser-based monitoring dashboard connected via WebSocket. Streams angle, velocity, current, and rep data at 10Hz with exercise history.",
-    metric: "10Hz telemetry stream",
+    description: "Browser-based monitoring dashboard with real-time telemetry streaming. Angle, velocity, and rep data with exercise history.",
+    metric: "Live telemetry",
   },
   {
     date: "2025-02",
@@ -69,19 +69,13 @@ const achievements = [
   {
     date: "2025-03",
     title: "Isokinetic Mode Validated",
-    description: "Velocity-controlled exercise mode showed genuine fatigue curves and successful resist-to-assist transitions during extended testing.",
+    description: "Velocity-controlled exercise mode showed genuine fatigue curves and successful resist-to-assist transitions during testing.",
     metric: "Fatigue detection working",
   },
   {
     date: "2025-03",
-    title: "Gearbox Failure Analysis",
-    description: "131:1 zinc spur gearbox failed twice under normal loads. Root cause analysis led to the v0.2 specification: 8:1 steel planetary gears.",
-    metric: "22 Nm stall torque (v0.2)",
-  },
-  {
-    date: "2025-03",
     title: "Safety Architecture Defined",
-    description: "Dual-path kill switch design finalised. Mechanical relay provides physical air gap independent of microcontroller. No software in the safety path.",
+    description: "Dual-path kill switch design finalised. Physical disconnect path independent of microcontroller. No software in the safety path.",
     metric: "Zero software dependency",
   },
 ];

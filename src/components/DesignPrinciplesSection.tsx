@@ -1,12 +1,9 @@
 const principles = [
-  "Hardware defines the experience. No amount of firmware compensates for wrong hardware.",
-  "Safety circuits have no software dependency. Button → relay → power. Physical air gap.",
-  "Phase-based logic, not velocity-based. Direction changes only at buffer zones.",
-  "Buffer zones are walls, not gaps. Motor ramps resistance at boundaries.",
-  "PID needs the derivative term. Proportional-only control oscillates.",
-  "Filter inputs before the control loop. Noisy readings make the damping term unstable.",
-  "Log everything including controller state. Cannot debug what cannot be observed.",
-  "Test on target users, not developers. Overpowering a rehab device proves nothing about suitability.",
+  "Hardware defines the experience. Component selection determines what's possible.",
+  "Safety circuits have no software dependency. Physical disconnect path only.",
+  "The control loop must handle edge cases gracefully at range-of-motion limits.",
+  "Log everything. Cannot debug what cannot be observed.",
+  "Test on target users, not developers. Suitability matters more than capability.",
 ];
 
 const DesignPrinciplesSection = () => {
