@@ -3,6 +3,7 @@ import SideNav from "@/components/SideNav";
 import HeroSection from "@/components/HeroSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import PrototypesSection from "@/components/PrototypesSection";
+import DashboardSection from "@/components/DashboardSection";
 import TimelineItem from "@/components/TimelineItem";
 import AchievementCard from "@/components/AchievementCard";
 import DesignPrinciplesSection from "@/components/DesignPrinciplesSection";
@@ -119,6 +120,7 @@ const Index = () => {
           <HeroSection />
           <HowItWorksSection />
           <PrototypesSection />
+          <DashboardSection />
 
           {/* Roadmap */}
           <section id="roadmap" className="mb-20">
