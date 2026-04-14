@@ -35,7 +35,7 @@ const PrototypesSection = () => {
 
         <div className="mb-4">
           <span className="font-mono text-xs text-muted-foreground block mb-2">Build photos</span>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             <img
               src={v01Bench}
               alt="v0.1 motor and driver on test bench"
