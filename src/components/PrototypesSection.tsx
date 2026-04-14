@@ -1,3 +1,5 @@
+import v01Bench from "@/assets/v01-bench.jpeg";
+import v01Worn from "@/assets/v01-worn.jpeg";
 import v02Final from "@/assets/v02-final.jpeg";
 import v02MotorVise from "@/assets/v02-motor-vise.jpeg";
 import v02Cutting from "@/assets/v02-cutting.jpeg";
@@ -31,11 +33,20 @@ const PrototypesSection = () => {
           browser-based dashboard for real-time monitoring.
         </p>
 
-        {/* Placeholder for v0.1 photos - coming soon */}
-        <div className="mb-4 border border-dashed border-border rounded-sm p-4">
-          <p className="font-mono text-xs text-muted-foreground text-center">
-            Build photos coming soon
-          </p>
+        <div className="mb-4">
+          <span className="font-mono text-xs text-muted-foreground block mb-2">Build photos</span>
+          <div className="grid grid-cols-2 gap-2">
+            <img
+              src={v01Bench}
+              alt="v0.1 motor and driver on test bench"
+              className="rounded-sm border border-border w-full aspect-square object-cover"
+            />
+            <img
+              src={v01Worn}
+              alt="v0.1 prototype worn on arm"
+              className="rounded-sm border border-border w-full aspect-square object-cover"
+            />
+          </div>
         </div>
 
         <div className="space-y-3">
