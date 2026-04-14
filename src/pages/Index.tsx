@@ -22,10 +22,10 @@ const roadmapItems = [
   status: "done" as const
 },
 {
-  date: "2025 Q1–Q2",
-  title: "v0.2 — Motor & Frame Redesign",
+  date: "2025 Q1-Q2",
+  title: "v0.2 - Motor & Frame Redesign",
   description: "BLDC motor with steel planetary gearbox, CAN bus communication, medical elbow brace frame. Addressing all v0.1 failure points.",
-  status: "current" as const
+  status: "done" as const
 },
 {
   date: "2025 Q3",
