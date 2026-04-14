@@ -1,3 +1,8 @@
+import v02Final from "@/assets/v02-final.jpeg";
+import v02MotorVise from "@/assets/v02-motor-vise.jpeg";
+import v02Cutting from "@/assets/v02-cutting.jpeg";
+import v02MotorMounted from "@/assets/v02-motor-mounted.jpeg";
+
 const PrototypesSection = () => {
   return (
     <section id="prototypes" className="mb-20">
@@ -6,7 +11,7 @@ const PrototypesSection = () => {
       </h3>
       <p className="font-mono text-sm text-muted-foreground mb-8 max-w-xl leading-relaxed">
         Each iteration revealed fundamental lessons about what works
-        in wearable resistance devices — and what doesn't.
+        in wearable resistance devices - and what doesn't.
       </p>
 
       {/* v0.1 */}
@@ -16,7 +21,7 @@ const PrototypesSection = () => {
             v0.1
           </span>
           <span className="font-mono text-xs text-muted-foreground">
-            Proof of Concept — Complete
+            Proof of Concept - Complete
           </span>
         </div>
         <p className="font-mono text-sm text-foreground leading-relaxed mb-4">
@@ -25,6 +30,14 @@ const PrototypesSection = () => {
           for rehabilitation exercises? A microcontroller ran the control loop with a
           browser-based dashboard for real-time monitoring.
         </p>
+
+        {/* Placeholder for v0.1 photos - coming soon */}
+        <div className="mb-4 border border-dashed border-border rounded-sm p-4">
+          <p className="font-mono text-xs text-muted-foreground text-center">
+            Build photos coming soon
+          </p>
+        </div>
+
         <div className="space-y-3">
           <div>
             <span className="font-mono text-xs text-muted-foreground block mb-1">What worked</span>
@@ -35,9 +48,9 @@ const PrototypesSection = () => {
             </ul>
           </div>
           <div>
-            <span className="font-mono text-xs text-muted-foreground block mb-1">Lessons learned</span>
+            <span className="font-mono text-xs text-muted-foreground block mb-1">Key learnings</span>
             <ul className="font-mono text-xs text-foreground space-y-1">
-              <li>• Gearbox selection is critical — it defines the entire user experience</li>
+              <li>• Gearbox selection is critical - it defines the entire user experience</li>
               <li>• The control loop requires careful tuning to avoid oscillation</li>
               <li>• Power supply must be sized for peak load, not nominal</li>
             </ul>
@@ -57,7 +70,7 @@ const PrototypesSection = () => {
             v0.2
           </span>
           <span className="font-mono text-xs text-muted-foreground">
-            In Development
+            Complete
           </span>
         </div>
         <p className="font-mono text-sm text-foreground leading-relaxed mb-4">
@@ -66,6 +79,34 @@ const PrototypesSection = () => {
           Digital bus communication replaces analog wiring. A medical-grade elbow brace
           replaces the hand-cut frame.
         </p>
+
+        {/* Build process photos */}
+        <div className="mb-4">
+          <span className="font-mono text-xs text-muted-foreground block mb-2">Build process</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <img
+              src={v02Cutting}
+              alt="Cutting aluminium mounting plate"
+              className="rounded-sm border border-border w-full aspect-square object-cover"
+            />
+            <img
+              src={v02MotorMounted}
+              alt="Motor mounted in aluminium plate"
+              className="rounded-sm border border-border w-full aspect-square object-cover"
+            />
+            <img
+              src={v02MotorVise}
+              alt="Motor assembly in vise during build"
+              className="rounded-sm border border-border w-full aspect-square object-cover"
+            />
+            <img
+              src={v02Final}
+              alt="v0.2 prototype worn on arm - complete build"
+              className="rounded-sm border border-border w-full aspect-square object-cover"
+            />
+          </div>
+        </div>
+
         <div className="grid gap-4 sm:grid-cols-2 mt-4">
           <div>
             <span className="font-mono text-xs text-muted-foreground block mb-1">Motor upgrade</span>
@@ -87,8 +128,8 @@ const PrototypesSection = () => {
           </div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default PrototypesSection;
